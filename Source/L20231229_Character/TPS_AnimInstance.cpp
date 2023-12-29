@@ -14,6 +14,7 @@ void UTPS_AnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 	if (IsValid(Pawn))
 	{
+		Velocity = Pawn->GetCharacterMovement()->Velocity;
 		GroundSpeed = Pawn->GetCharacterMovement()->Velocity.Size2D();
 		ShouldMove = (GroundSpeed > 3.0f) && UKismetMathLibrary::NotEqual_VectorVector(Pawn->GetCharacterMovement()->GetCurrentAcceleration(), FVector::ZeroVector, 0);
 		IsFalling = Pawn->GetCharacterMovement()->IsFalling();
